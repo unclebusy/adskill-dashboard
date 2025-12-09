@@ -1,0 +1,63 @@
+.platforms-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+  table-layout: fixed;
+}
+
+.platforms-table th,
+.platforms-table td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.platforms-table th:nth-child(1),
+.platforms-table td:nth-child(1) {
+  width: 40px;
+  padding-left: 8px;
+  text-align: center;
+}
+
+.platforms-table th:nth-child(2),
+.platforms-table td:nth-child(2) {
+  width: 80px;
+  text-align: center;
+}
+
+.platforms-table th:nth-child(3),
+.platforms-table td:nth-child(3),
+.platforms-table th:nth-child(4),
+.platforms-table td:nth-child(4),
+.platforms-table th:nth-child(5),
+.platforms-table td:nth-child(5),
+.platforms-table th:nth-child(6),
+.platforms-table td:nth-child(6) {
+  width: auto;
+  text-align: center;
+}
+
+.platforms-table th {
+  font-size: 12px;
+  font-weight: 500;
+  color: #94A3B8;
+  border-bottom: 1px solid #E2E8F0;
+  white-space: nowrap;
+}
+
+.platforms-table td {
+  font-size: 14px;
+  color: #1E293B;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.platforms-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.platforms-table .platform-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
