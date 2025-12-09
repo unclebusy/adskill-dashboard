@@ -180,7 +180,6 @@ export const OffersTable = ({ offers }: OffersTableProps) => {
         </tbody>
       </table>
 
-      {/* Mobile Cards */}
       <div className="offers-cards">
         {sortedOffers.map((offer) => (
           <div

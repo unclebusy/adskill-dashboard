@@ -1,6 +1,6 @@
 import { Offer } from '../../types/types';
-import { PlatformIcon } from '../ui/PlatformIcon';
-import { Checkbox } from '../ui/Checkbox';
+import { PlatformsTable } from '../ui/PlatformsTable';
+import { formatBalance, formatDateRu } from '../../utils/formatters';
 import './OfferExpandedRow.css';
 
 interface OfferExpandedRowProps {
@@ -9,15 +9,6 @@ interface OfferExpandedRowProps {
 
 export const OfferExpandedRow = ({ offer }: OfferExpandedRowProps) => {
   const totalBalance = offer.platformDetails.reduce((sum, platform) => sum + platform.balance, 0);
-
-  const formatBalance = (value: number) => {
-    return '$ ' + value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace(/,/g, ' ');
-  };
-
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('ru-RU');
-  };
 
   return (
     <div className="offer-expanded">
@@ -29,7 +20,7 @@ export const OfferExpandedRow = ({ offer }: OfferExpandedRowProps) => {
         <div className="offer-expanded__info">
           <div className="offer-expanded__info-row">
             <span className="offer-expanded__info-label">Дата запуска:</span>
-            <span className="offer-expanded__info-value">{formatDate(offer.launchDate)}</span>
+            <span className="offer-expanded__info-value">{formatDateRu(offer.launchDate)}</span>
           </div>
           <div className="offer-expanded__info-row">
             <span className="offer-expanded__info-label">Направление:</span>
@@ -56,36 +47,7 @@ export const OfferExpandedRow = ({ offer }: OfferExpandedRowProps) => {
 
       <div className="offer-expanded__right">
         <h3 className="offer-expanded__platforms-title">Рекламные площадки</h3>
-        <table className="platforms-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Площадки ⇅</th>
-              <th>Баланс ⇅</th>
-              <th>Аккаунтов ⇅</th>
-              <th>AVG CPC ⇅</th>
-              <th>AVG CPA ⇅</th>
-            </tr>
-          </thead>
-          <tbody>
-            {offer.platformDetails.map((platform) => (
-              <tr key={platform.id}>
-                <td>
-                  <Checkbox onChange={() => {}} />
-                </td>
-                <td>
-                  <div className="platform-cell">
-                    <PlatformIcon platform={platform.type} size="small" />
-                  </div>
-                </td>
-                <td>${platform.balance.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
-                <td>{platform.accounts}</td>
-                <td>${platform.avgCpc.toFixed(2)}</td>
-                <td>${platform.avgCpa.toFixed(2)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <PlatformsTable platforms={offer.platformDetails} />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { Offer, PlatformType } from '../../types/types';
-import { PlatformIcon } from '../ui/PlatformIcon';
-import { Checkbox } from '../ui/Checkbox';
+import { PlatformsTable } from '../ui/PlatformsTable';
+import { formatBalance } from '../../utils/formatters';
 import './TotalOfferExpanded.css';
 
 interface TotalOfferExpandedProps {
@@ -54,10 +54,6 @@ export const TotalOfferExpanded = ({ offers }: TotalOfferExpandedProps) => {
   const totalBalance = aggregatedPlatforms.reduce((sum, p) => sum + p.balance, 0);
   const totalAccounts = aggregatedPlatforms.reduce((sum, p) => sum + p.accounts, 0);
 
-  const formatBalance = (value: number) => {
-    return '$ ' + value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace(/,/g, ' ');
-  };
-
   return (
     <div className="total-offer-expanded">
       <div className="total-offer-expanded__left">
@@ -83,36 +79,7 @@ export const TotalOfferExpanded = ({ offers }: TotalOfferExpandedProps) => {
 
       <div className="total-offer-expanded__right">
         <h3 className="total-offer-expanded__platforms-title">Все рекламные площадки</h3>
-        <table className="total-platforms-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Площадки ⇅</th>
-              <th>Баланс ⇅</th>
-              <th>Аккаунтов ⇅</th>
-              <th>AVG CPC ⇅</th>
-              <th>AVG CPA ⇅</th>
-            </tr>
-          </thead>
-          <tbody>
-            {aggregatedPlatforms.map((platform) => (
-              <tr key={platform.type}>
-                <td>
-                  <Checkbox onChange={() => {}} />
-                </td>
-                <td>
-                  <div className="platform-cell">
-                    <PlatformIcon platform={platform.type} size="small" />
-                  </div>
-                </td>
-                <td>${platform.balance.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
-                <td>{platform.accounts}</td>
-                <td>${platform.avgCpc.toFixed(2)}</td>
-                <td>${platform.avgCpa.toFixed(2)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <PlatformsTable platforms={aggregatedPlatforms} />
       </div>
     </div>
   );

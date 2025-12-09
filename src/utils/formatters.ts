@@ -34,3 +34,12 @@ export const formatDateTime = (dateString: string): string => {
     minute: '2-digit',
   }).format(date);
 };
+
+export const formatDateRu = (dateString: string): string => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('ru-RU');
+};
+
+export const formatBalance = (value: number): string => {
+  return '$ ' + value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace(/,/g, ' ');
+};
