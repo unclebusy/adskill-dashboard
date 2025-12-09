@@ -1,0 +1,81 @@
+import { Offer, MetricsState } from '../types/types';
+
+export const mockOffers: Offer[] = [
+  {
+    id: '1',
+    name: 'Продажа мебели',
+    platforms: ['google', 'googleAds', 'applovin'],
+    launchDate: '2025-06-23',
+    balance: 15423.00,
+    expense: 15423.00,
+    status: 'active',
+    currency: 'USD',
+    direction: 'E-Commerce',
+    object: 'App',
+    goal: 'CPA',
+    tracker: 'AppsFlyer',
+    geo: ['RU', 'UA', 'KZ'],
+    platformDetails: [
+      {
+        id: '1-1',
+        type: 'google',
+        balance: 15423.00,
+        accounts: 12,
+        avgCpc: 0.32,
+        avgCpa: 5.32,
+      },
+      {
+        id: '1-2',
+        type: 'vk',
+        balance: 15423.00,
+        accounts: 10,
+        avgCpc: 0.11,
+        avgCpa: 2.53,
+      },
+    ],
+  },
+  {
+    id: '2',
+    name: 'Стулья 2.0',
+    platforms: ['vk', 'telegram'],
+    launchDate: '2025-06-23',
+    balance: 15423.00,
+    expense: 15423.00,
+    status: 'stopped',
+    currency: 'USD',
+    direction: 'E-Commerce',
+    object: 'Website',
+    goal: 'CPC',
+    tracker: 'Adjust',
+    geo: ['RU'],
+    platformDetails: [
+      {
+        id: '2-1',
+        type: 'vk',
+        balance: 8500.00,
+        accounts: 5,
+        avgCpc: 0.15,
+        avgCpa: 3.20,
+      },
+      {
+        id: '2-2',
+        type: 'telegram',
+        balance: 6923.00,
+        accounts: 3,
+        avgCpc: 0.08,
+        avgCpa: 1.85,
+      },
+    ],
+  },
+];
+
+export const mockMetrics: MetricsState = {
+  expense: 15423.00,
+  expenseChange: 24,
+  clicks: 323,
+  clicksChange: 100,
+  cpc: 4,
+  cpcChange: -2,
+  cpa: 4.44,
+  cpaChange: -3,
+};

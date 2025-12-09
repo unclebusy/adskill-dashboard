@@ -1,0 +1,89 @@
+.offer-card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.offer-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.offer-card--selected {
+  background: var(--color-primary-alpha);
+  border-color: var(--color-primary);
+}
+
+.offer-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.offer-card__checkbox {
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.offer-card__title-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.offer-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 8px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.offer-card__platforms {
+  display: flex;
+  gap: 6px;
+}
+
+.offer-card__metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.offer-card__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.offer-card__metric-label {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+
+.offer-card__metric-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.offer-card__metric-value--highlight {
+  color: var(--color-success);
+}
+
+.offer-cards-list {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 1024px) {
+  .offer-cards-list {
+    display: flex;
+  }
+}

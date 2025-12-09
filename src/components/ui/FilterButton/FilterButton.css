@@ -1,0 +1,28 @@
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  border-color: #CBD5E1;
+  color: #1E293B;
+}
+
+.filter-btn svg {
+  flex-shrink: 0;
+}
+
+.filter-btn__arrow {
+  margin-left: 2px;
+}
