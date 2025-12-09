@@ -7,6 +7,7 @@ import { MetricsCards } from '../../components/MetricsCards';
 import { OffersTable } from '../../components/OffersTable';
 import { OfferCard } from '../../components/OfferCard';
 import { OfferExpandedRow } from '../../components/OfferExpandedRow';
+import { TotalOfferExpanded } from '../../components/TotalOfferExpanded';
 import { DashboardLoading } from '../../components/DashboardLoading';
 import { DashboardError } from '../../components/DashboardError';
 import './Dashboard.css';
@@ -59,6 +60,8 @@ export const Dashboard = () => {
             </div>
           ))}
         </div>
+
+        <TotalOfferExpanded offers={offers} />
       </div>
     </div>
   );
