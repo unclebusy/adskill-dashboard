@@ -1,0 +1,1 @@
+export { TotalOfferExpanded } from './TotalOfferExpanded';

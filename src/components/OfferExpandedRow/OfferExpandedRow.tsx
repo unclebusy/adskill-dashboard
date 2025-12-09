@@ -8,6 +8,8 @@ interface OfferExpandedRowProps {
 }
 
 export const OfferExpandedRow = ({ offer }: OfferExpandedRowProps) => {
+  const totalBalance = offer.platformDetails.reduce((sum, platform) => sum + platform.balance, 0);
+
   const formatBalance = (value: number) => {
     return '$ ' + value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace(/,/g, ' ');
   };
@@ -22,7 +24,7 @@ export const OfferExpandedRow = ({ offer }: OfferExpandedRowProps) => {
       <div className="offer-expanded__left">
         <div className="offer-expanded__balance">
           <span className="offer-expanded__balance-label">Баланс</span>
-          <span className="offer-expanded__balance-value">{formatBalance(150345)}</span>
+          <span className="offer-expanded__balance-value">{formatBalance(totalBalance)}</span>
         </div>
         <div className="offer-expanded__info">
           <div className="offer-expanded__info-row">

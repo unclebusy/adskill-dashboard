@@ -14,7 +14,9 @@ import './Dashboard.css';
 
 export const Dashboard = () => {
   const dispatch = useAppDispatch();
-  const { items: offers, loading, error, expandedOfferId } = useAppSelector((state) => state.offers);
+  const { items: offers, loading, error, expandedOfferId, selectedIds } = useAppSelector((state) => state.offers);
+  
+  const selectedOffers = offers.filter(offer => selectedIds.includes(offer.id));
 
   useEffect(() => {
     dispatch(fetchOffers());
@@ -61,7 +63,7 @@ export const Dashboard = () => {
           ))}
         </div>
 
-        <TotalOfferExpanded offers={offers} />
+        <TotalOfferExpanded offers={selectedOffers.length > 0 ? selectedOffers : offers} />
       </div>
     </div>
   );
